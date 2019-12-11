@@ -11,10 +11,12 @@ import XCTest
 
 class StringCalculatorTests: XCTestCase {
 
-    func test_sum() {
-        let sut = Calculator()
-        
+    private let sut = Calculator()
+    
+    func testSum() {
+        XCTAssert(sut.add(numbers: "") == 0)
+        XCTAssert(sut.add(numbers: "1") == 1)
         XCTAssert(sut.add(numbers: "1,2,3") == 6)
     }
-
+    
 }
