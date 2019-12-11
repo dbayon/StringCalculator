@@ -39,11 +39,37 @@ class ViewController: UIViewController {
     }
     
     @IBAction func logouot(_ sender: Any) {
-        loginFormView.isHidden = false
-        appView.isHidden = true
+        let date = Date()
+        loginFormView.isHidden = Int(date.timeIntervalSince1970) % 2 == 0
+        appView.isHidden = Int(date.timeIntervalSince1970) % 2 != 0
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 enum CalculatorError: Error {
     case negativeNumber
