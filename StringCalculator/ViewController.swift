@@ -18,3 +18,9 @@ class ViewController: UIViewController {
 
 }
 
+class Calculator {
+    func add(numbers: String) -> Int {
+        numbers.components(separatedBy: ",").compactMap { Int($0) }.reduce(0, +)
+    }
+}
+
