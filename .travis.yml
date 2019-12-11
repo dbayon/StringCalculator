@@ -1,5 +1,8 @@
 language: objective-c
-osx_image: xcode11.2.1
+osx_image: xcode11.2
 xcode_project: StringCalculator.xcodeproj
 xcode_scheme: StringCalculator
-xcode_destination: platform=iOS Simulator,name=iPhone 11
+xcode_sdk: iphonesimulator13.0
+script: xcodebuild -project StringCalculator.xcodeproj -scheme StringCalculator -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+notifications:
+ email: falselanguage: objective-c
