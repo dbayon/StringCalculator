@@ -14,15 +14,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var appView: UIView!
+    @IBOutlet weak var loginFormView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func logiin(_ sender: Any) {
+        guard let user = self.usernameField.text,
+            let pass = self.passwordField.text,
+            user == "admin",
+            pass == user else {
+                let alert = UIAlertController(title: "Error", message: "Invalid credentials", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+                                              style: .default,
+                                              handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+        }
+        loginFormView.isHidden = true
+        appView.isHidden = false
     }
     
     @IBAction func logouot(_ sender: Any) {
+        loginFormView.isHidden = false
+        appView.isHidden = true
     }
     
 }

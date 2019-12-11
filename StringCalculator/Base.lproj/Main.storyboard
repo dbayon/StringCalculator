@@ -83,7 +83,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="appView" destination="2W9-3H-b8e" id="zu5-dA-BWZ"/>
                         <outlet property="loginButton" destination="fBQ-CO-0Oa" id="pBK-g8-8Lm"/>
+                        <outlet property="loginFormView" destination="ixQ-je-6O4" id="yyc-NB-X9E"/>
                         <outlet property="logoutButton" destination="Z7d-Bk-RMR" id="3We-KS-yRI"/>
                         <outlet property="passwordField" destination="qP1-g9-j5j" id="hjZ-Wf-paM"/>
                         <outlet property="usernameField" destination="tO2-fz-lpk" id="IiT-Bz-1AU"/>
