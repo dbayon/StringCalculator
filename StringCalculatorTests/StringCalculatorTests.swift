@@ -13,16 +13,25 @@ class StringCalculatorTests: XCTestCase {
 
     private let sut = Calculator()
     
-    func testWhenMoreThanOneNumber() {
-        XCTAssert(sut.add(numbers: "1,2,3") == 6)
+    private let scenarios: [(String, Int)] = [("1,2,3", 6),
+                                              ("12", 12),
+                                              ("", 0),
+                                              ("2\n2\n5", 9)]
+    
+    func testGivenSumGivenAScenario() throws {
+        try scenarios.forEach { (arg0) in
+            let (input, result) = arg0
+            let sum = try sut.add(numbers: input)
+            XCTAssertEqual(sum, result)
+        }
     }
     
-    func testWhenStringHasOnlyOneNumberThenReturnThatNumber() {
-        XCTAssert(sut.add(numbers: "12") == 12)
+    func testGivenNegativeNumberThenThrowException() {
+        XCTAssertThrowsError(try sut.add(numbers: "-1,4"))
     }
     
-    func testWhenEmptyStringThenReturnZero() {
-        XCTAssert(sut.add(numbers: "") == 0)
+    func testGivenInvalidSeparatorThenThrowException() {
+        XCTAssertThrowsError(try sut.add(numbers: "1;2;4"))
     }
     
 }
